@@ -1,0 +1,1 @@
+#Configurando workspace e ajustando ambiente para inicio de desenvolvimento.
