@@ -1,8 +1,17 @@
 class Recruta:
+
+    total_alistados = 0 
+
     def __init__(self, nome_recruta, stamina_total):
         self.nome = nome_recruta
         self.stamina = stamina_total
 
+        Recruta.total_alistados += 1
+
+    @classmethod #afeta todos os soldados pois age diretamente na classe
+    def contagem_tropas(cls): 
+        return f"Temos {cls.total_alistados} soldados no campo!"
+    
     def __str__(self):
         return f"Recruta: {self.nome} | Energia: {self.stamina}/10"
 
@@ -33,3 +42,4 @@ print("--- RELATÓRIO FINAL ---")
 print(dave)
 print(bryan)
 print(liam)
+print(Recruta.contagem_tropas())
