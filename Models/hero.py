@@ -1,3 +1,6 @@
+from inspect import stack
+
+
 class Hero:
 
     total_heroes = 0 
@@ -12,6 +15,6 @@ class Hero:
         Hero.total_heroes += 1
   
     def attack_enemy(self):
-        return f"The hero {self.name} attacked causing X damage."
+        print (f"The hero {self.name} attacked causing {self.attack} damage.")
   
   
