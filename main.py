@@ -5,45 +5,35 @@ players_name = input("What's the player's name? ")
 print("What's the player's class:\n[1] Warrior\n[2] Wizard\n[3] Archer\n[4] Dark Elf\n[5] High Elf")
 player_class_choice = input("Type your choice here: ----> ")
 
-if player_class_choice == "1":
-    chosen_class = "Warrior"
-    base_hp = 100
-    base_attack = 7
+class_table = {
+    "1": {"Classe": "Warrior", "HP": 100, "attack": 7},
+    "2": {"Classe": "Wizard", "HP": 70, "attack": 10 },
+    "3": {"Classe": "Archer", "HP": 65, "attack": 12 },
+    "4": {"Classe": "Dark Elf", "HP": 85, "attack": 8 },
+    "5": {"Classe": "High Elf", "HP": 80, "attack": 9 },
+}
 
-elif player_class_choice == "2":
-    chosen_class = "Wizard"
-    base_hp = 70  
-    base_attack = 10
+chosen_status = class_table.get(player_class_choice)
 
-elif player_class_choice == "3":
-    chosen_class = "Archer"
-    base_hp = 65
-    base_attack = 12
-
-elif player_class_choice == "4":
-    chosen_class = "Dark Elf"
-    base_hp = 85  
-    base_attack = 9
-
-elif player_class_choice == "5":
-    chosen_class = "High Elf"
-    base_hp = 80
-    base_attack = 10
-
-else:
-    print("Invalid choice! You are now a Peasant.")
+if chosen_status == None:
+    print("Invalid choice! You are now a Peasant")
     chosen_class = "Peasant"
-    base_hp = 30
+    base_HP = 30
     base_attack = 2
 
-player = Hero(player_class_choice, base_hp, chosen_class, base_attack)
+else:
+    chosen_class = chosen_status["Classe"]
+    base_HP = chosen_status["HP"]
+    base_attack = chosen_status["attack"]
+
+player = Hero(players_name, base_HP, chosen_class, base_attack)
 
 while True:
      
     print("\n--- !!! WELCOME TO RPG BATTLE SYSTEM !!! ---")
     print("'1' Attack" '\n' "'2' Quit")
 
-    player_choice = input("Type you choice here: ----> ")
+    player_choice = input("Type your choice here: ----> ")
 
     if player_choice == "1":
         player.attack_enemy()

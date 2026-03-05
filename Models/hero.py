@@ -15,6 +15,6 @@ class Hero:
         Hero.total_heroes += 1
   
     def attack_enemy(self):
-        print (f"The hero {self.name} attacked causing {self.attack} damage.")
+        print (f"The hero {self.name} attacked causing {self.attack} points of damage.")
   
   
